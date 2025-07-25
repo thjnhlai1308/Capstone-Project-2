@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon server"
+    "start:dev": "JWT=kickmatch nodemon server",
+    "start:dev:sync": "SYNC=true nodemon server"
   },
   "keywords": [],
   "author": "",

@@ -2,26 +2,25 @@ const express = require('express')
 const app = express.Router()
 
 const {
-    createUser,
-    fetchUsers
-} = require('../db/user')
+    authenticate
+} = require('../db/auth')
 
 const {
-    isAdmin,
     isLoggedIn
 } = require('./middleware')
 
-app.get('/', isLoggedIn, async(req,res,next)=> {
+app.post('/login', async (req, res, next) => {
     try {
-        res.send(await fetchUsers())
+        const token = await authenticate (req.body)
+        res.send(token)    
     } catch (error) {
         next(error)
     }
 })
 
-app.post('/register', async (req, res, next) => {
+app.get('/me', isLoggedIn, (req, res, next) => {
     try {
-        res.send(await createUser(req.body))
+        res.send(req.user)
     } catch (error) {
         next(error)
     }
