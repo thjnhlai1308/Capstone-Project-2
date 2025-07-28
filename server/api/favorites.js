@@ -20,11 +20,21 @@ app.get('/', isLoggedIn, async (req, res, next) => {
 
 app.post('/', isLoggedIn, async (req, res, next) => {
     try {
-        res.send(await createFavorite(req.body))
+      const { shoe_id } = req.body;
+      const user_id = req.user.id;
+  
+      if (!shoe_id || !user_id) {
+        throw new Error('Missing shoe_id or user_id');
+      }
+  
+      const favorite = await createFavorite({ shoe_id, user_id });
+      res.status(201).send(favorite);
     } catch (error) {
-        next(error)
+      console.error('Error in POST /api/favorites:', error);
+      next(error);
     }
-})
+  });
+  
 
 app.delete('/:fav_id/user/:user_id', isLoggedIn, async (req, res, next) => {
     try {

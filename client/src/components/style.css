@@ -1,0 +1,504 @@
+/* === Homepage === */
+.homepage {
+  padding: 6rem 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: #0f0f0f;
+  color: #f1f1f1;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.homepage h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.homepage p {
+  font-size: 1.3rem;
+  max-width: 720px;
+  margin: 0 auto 4rem auto;
+  color: #b0b0b0;
+  font-weight: 300;
+  animation: slideFadeIn 0.7s ease;
+}
+
+.allshoes {
+  margin-top: 5rem;
+}
+
+.allshoes h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2.5rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.shoe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 5rem;
+  padding: 1rem 0;
+}
+  /* ========== */
+
+  /* === Navbar === */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0f0f0f;
+    color: #fff;
+    padding: 1.2rem 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .logo a {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .logo a:hover {
+    color: #e94560;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .nav-links a:hover {
+    color: #e94560;
+  }
+  .view-all {
+    background-color: #e94560;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.5rem 1.1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(233, 69, 96, 0.35);
+  }
+  
+  .view-all:hover {
+    background-color: #fe97a4;
+    transform: translateY(-2px);
+    color: white;
+  }
+  
+  .view-all a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .logout-btn {
+    background-color: transparent;
+    border: 1px solid #555;
+    color: #ccc;
+    padding: 0.45rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-left: 0.8rem;
+  }
+  
+  .logout-btn:hover {
+    background-color: #222;
+    color: #fff;
+    border-color: #999;
+  }
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* ========== */
+
+/* === Login === */
+.login-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 2rem 3rem;
+    border-radius: 16px;
+    box-shadow: 0 0 20px black;
+    width: 100%;
+    max-width: 500px;
+}
+
+.login-form h1 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.login-form input  {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #222;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.login-form button:hover {
+    background-color: #444;
+  }
+  
+  .error {
+    color: #d33;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  /* ========== */
+
+  /* === Register === */
+  .register-container, .login-container {
+    max-width: 450px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #fafafa;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px black;
+    text-align: center;
+    
+  }
+
+  .register-container h1, .login-container h1{
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #111;
+  }
+
+  .register-container form, .login-container form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .register-container label {
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .register-container input {
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .register-container button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: #111;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+  .register-container button:hover {
+    background-color: #333;
+  }
+  /* ========== */
+
+/* === Browse All Shoes Section === */
+
+.homepage {
+  padding: 2rem;
+  text-align: center;
+  background-color: #f7f7f7;
+  max-height: 100vh;
+}
+
+.homepage h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.homepage p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.allshoes {
+  margin-top: 3rem;
+}
+
+.allshoes h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.shoe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+/* ========== */
+
+/* === Browse === */
+/* Browse Page */
+.browse-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.browse-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #222;
+  text-align: center;
+}
+
+.browse-page p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* ========= */
+
+
+/* === Shoe Card === */
+.shoe-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* space between content and buttons */
+  height: 100%; /* ensure consistent height for layout */
+  box-sizing: border-box;
+}
+
+.shoe-card:hover {
+  transform: translateY(-6px);
+}
+
+.shoe-image {
+  width: 100%;
+  max-width: 200px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.shoe-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  width: 100%;
+  text-align: center;
+  color: #0f0f0f;
+}
+
+.shoe-details {
+  font-size: 0.95rem;
+  margin: 0.25rem 0;
+  width: 100%;
+  text-align: center;
+  color: #444;
+}
+
+.shoe-button,
+.view-link {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+}
+
+.shoe-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.view-link {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+/* === Single Shoe === */
+.shoe-page {
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  background-color: #fafafa;
+}
+
+.back-button {
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.back-button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.shoe-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 5rem;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.shoe-image-container {
+  flex: 1;
+  min-width: 500px;
+  text-align: center;
+}
+
+.shoe-image {
+  max-width: 600px; 
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.shoe-info {
+  text-align: center;
+  max-width: 600px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.buy-now-button {
+  background-color: #ff5c5c;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.buy-now-button:hover {
+  background-color: #e14e4e;
+}
+
+.login-required {
+  padding: 2rem;
+  text-align: center;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.auth-buttons button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #444;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.auth-buttons button:hover {
+  background-color: #222;
+}
+
+/* ========== */
+
+
+  
