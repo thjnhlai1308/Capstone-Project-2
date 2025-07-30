@@ -14,15 +14,18 @@ const seed = async () => {
     DROP TABLE IF EXISTS shoes;
     DROP TABLE IF EXISTS users;
 
-    CREATE TABLE users(
+    CREATE TABLE users (
       id UUID PRIMARY KEY,
       username VARCHAR(100) UNIQUE NOT NULL,
       password VARCHAR(100),
       email VARCHAR(255),
-      is_Oauth Boolean DEFAULT false,
+      is_oauth BOOLEAN DEFAULT false,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      CHECK((password IS NOT NULL AND is_Oauth = false) OR (password IS NULL AND is_Oauth = true)),
-      is_admin Boolean DEFAULT false NOT NULL 
+      CHECK (
+        (password IS NOT NULL AND is_oauth = false)
+        OR (password IS NULL AND is_oauth = true)
+      ),
+      is_admin BOOLEAN DEFAULT false NOT NULL
     );
 
     CREATE TABLE shoes (

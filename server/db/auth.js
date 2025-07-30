@@ -1,7 +1,7 @@
 const client = require('./client')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-require('dotenv').config()
+require('dotenv').config({ path: __dirname + '/../.env' })
 const axios = require('axios')
 const {v4} = require('uuid')
 const uuidv4 = v4
@@ -52,6 +52,9 @@ const authenticate = async (credentials) => {
 }
 
 const authenticateGithub = async (code) => {
+
+    console.log('GITHUB_CLIENT_ID:', process.env.GITHUB_CLIENT_ID);
+    console.log('GITHUB_CLIENT_SECRET:', process.env.GITHUB_CLIENT_SECRET);
     let response = await axios.post('https://github.com/login/oauth/access_token', {
         client_id: process.env.GITHUB_CLIENT_ID,
         code,
@@ -67,7 +70,7 @@ const authenticateGithub = async (code) => {
             Authorization: `Bearer ${response.data.access_token}`
         }
     })
-    
+    //return response.data
     const login = response.data.login
     let SQL = `
         SELECT id

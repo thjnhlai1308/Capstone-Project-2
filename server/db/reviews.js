@@ -10,7 +10,7 @@ const createReview = async ({ user_id, shoe_id, rating, comment, image_urls = []
     `
     const response = await client.query(SQL, [uuidv4(), user_id, shoe_id, rating, comment, image_urls])
     return response.rows[0]
-  }
+}
   
 const updateReview = async ({ review_id, rating, comment, image_urls = [] }) => {
     const SQL = `
@@ -21,7 +21,7 @@ const updateReview = async ({ review_id, rating, comment, image_urls = [] }) => 
     `
     const response = await client.query(SQL, [rating, comment, image_urls, review_id])
     return response.rows[0]
-  }
+ }
 const fetchReviewsByShoe = async (shoe_id) => {
     const SQL = `
         SELECT r.*, u.username
@@ -32,7 +32,7 @@ const fetchReviewsByShoe = async (shoe_id) => {
     `
     const response = await client.query(SQL, [shoe_id])
     return response.rows
-  }
+}
   
 const fetchReviewsByUser = async (user_id) => {
     const SQL = `
@@ -44,7 +44,7 @@ const fetchReviewsByUser = async (user_id) => {
     `
     const response = await client.query(SQL, [user_id])
     return response.rows
-  }
+}
   
 const deleteReview = async (review_id) => {
     const SQL = `
@@ -54,7 +54,7 @@ const deleteReview = async (review_id) => {
     `
     const response = await client.query(SQL, [review_id])
     return response.rows[0]
-  }
+}
   
   const getAverageRating = async (shoe_id) => {
     const SQL = `
@@ -62,10 +62,10 @@ const deleteReview = async (review_id) => {
       FROM reviews
       WHERE shoe_id = $1
     `
-    const response = await client.query(SQL, [shoe_id]);
-    const avg = response.rows[0]?.average_rating;
-    return avg === null ? null : parseFloat(avg);
-  };
+    const response = await client.query(SQL, [shoe_id])
+    const avg = response.rows[0]?.average_rating
+    return avg === null ? null : parseFloat(avg)
+}
   
 module.exports = {
     createReview,
