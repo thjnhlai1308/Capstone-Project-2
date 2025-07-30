@@ -5,36 +5,35 @@ import './style.css';
 const Navbar = ({ user, logout }) => {
     console.log('Navbar user:', user)
 
-    const isLoggedIn = !!user?.id;
+    const isLoggedIn = !!user?.id
 
     return (
-        <nav className="navbar">
-        <h2 className="logo">
-            <Link to="/">KickMatch</Link>
-        </h2>
+      <nav className="navbar">
+      <h2 className="logo">
+          <Link to="/">KickMatch</Link>
+      </h2>
 
-        <div className="nav-links">
-            <Link to="/">Home</Link>
-            <Link to="/browse">Browse</Link>
+      <div className="nav-links">
+        <Link to="/">Home</Link>
+        <Link to="/browse">Browse</Link>
 
         {isLoggedIn ? (
           <>
             <Link to="/closet">My Closet</Link>
-            <Link to="/aboutme">Account</Link>
-            <span className="welcome">Hi, {user.username}</span>
+            <Link to="/account">Account</Link>
+            <span className="user-greeting">Hi, {user.username}</span>
             <button className="logout-btn" onClick={logout}>
               Logout
             </button>
           </>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link to="/login">Login or Register</Link>
           </>
         )}
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

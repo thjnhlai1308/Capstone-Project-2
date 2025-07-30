@@ -10,13 +10,14 @@ const {
     deleteFavorite
 } = require('../db/favorites')
 
-app.get('/', isLoggedIn, async (req, res, next) => {
+app.get('/me', isLoggedIn, async (req, res, next) => {
     try {
-        res.send(await fetchFavorites(req.user.id))
+      const favorites = await fetchFavorites(req.user.id)
+      res.send(favorites)
     } catch (error) {
-        next(error)
+      next(error)
     }
-})
+  })
 
 app.post('/', isLoggedIn, async (req, res, next) => {
     try {

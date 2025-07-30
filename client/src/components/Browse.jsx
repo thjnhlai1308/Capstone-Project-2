@@ -1,53 +1,55 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import ShoeCard from './ShoeCard';
-import './style.css';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import ShoeCard from './ShoeCard'
+import './style.css'
 
 const Browse = ({ user, getHeaders, favorites, setFavorites }) => {
-  const [shoes, setShoes] = useState([])
-  const [error, setError] = useState('')
+    const [shoes, setShoes] = useState([])
+    const [filteredShoes, setFilteredShoes] = useState([])
+    const [searchTerm, setSearchTerm] = useState('')
 
-  useEffect(() => {
-    const fetchShoes = async () => {
-      try {
-        const { data } = await axios.get('/api/shoes')
-        setShoes(data)
-      } catch (err) {
-        console.error('Error loading shoes:', err)
-        setError('Unable to load shoes at this time.')
-      }
-    };
+    useEffect(() => {
+        const fetchShoes = async () => {
+            try {
+                const {data} = await axios.get('/api/shoes')
+                setShoes(data)
+                setFilteredShoes(data)
+            } catch (error) {
+                console.error('Failed to fetch shoes:', error)
+            }
+        }
+        fetchShoes()
+    }, [])
+    
+    useEffect(() => {
+        const lowerSearch = searchTerm.toLowerCase()
+        const results = shoes.filter(shoe =>
+            shoe.name.toLowerCase().includes(lowerSearch) ||
+            shoe.brand.toLowerCase().includes(lowerSearch) ||
+            shoe.model?.toLowerCase().includes(lowerSearch) ||
+            shoe.color?.toLowerCase().includes(lowerSearch)
+        )
+        setFilteredShoes(results)
+    }, [searchTerm, shoes])
 
-    fetchShoes()
-  }, [])
-
-  return (
-    <div className="browse-page">
-      <h1>👟 Explore All Kicks</h1>
-      <p>Browse trending styles and build your virtual closet.</p>
-
-      {!user?.id && (
-        <div className="login-required-banner">
-          <p><strong>Note:</strong> You must be logged in to add favorites.</p>
+    return (
+        <div className='browse-page'>
+            <h1>👟 Browse All Shoes</h1>
+            <input type="text" placeholder="Search shoes by name, brand, model, color..." className="search-bar" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+            <div className="shoe-grid">
+                {filteredShoes.map((shoe) => (
+                    <ShoeCard
+                        key={shoe.id}
+                        shoe={shoe}
+                        getHeaders={getHeaders}
+                        user={user}
+                        favorites={favorites}
+                        setFavorites={setFavorites}
+                    />
+                ))}
+            </div>
         </div>
-      )}
-
-      {error && <p className="error-message">{error}</p>}
-
-      <div className="shoe-grid">
-        {shoes.map((shoe) => (
-          <ShoeCard
-            key={shoe.id}
-            shoe={shoe}
-            user={user}
-            getHeaders={getHeaders}
-            favorites={favorites}
-            setFavorites={setFavorites}
-          />
-        ))}
-      </div>
-    </div>
-  )
+    )
 }
 
 export default Browse
