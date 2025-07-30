@@ -4,12 +4,13 @@ const {
 } = require('./db');
 const express = require('express');
 const app = express();
+require('dotenv').config();
 //body parsing middleware
 app.use(express.json());
 
 //for deployment only
 const path = require('path');
-app.get('/', (req, res)=> res.render((path.join(__dirname, '../client/dist/index.html')), {GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID} ));
+app.get('/', (req, res)=> res.sendFile(path.join(__dirname, '../client/dist/index.html')));
 app.use('/assets', express.static(path.join(__dirname, '../client/dist/assets'))); 
 
 //use api routes
