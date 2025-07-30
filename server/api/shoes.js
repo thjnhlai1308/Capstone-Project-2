@@ -38,15 +38,15 @@ app.put('/:id', isLoggedIn, isAdmin, async (req, res, next) => {
 
 app.get('/:id', async (req, res, next) => {
     try {
-      const shoe = await getShoeById(req.params.id);
-      if (!shoe) {
-        return res.status(404).send({ error: 'Shoe not found' });
-      }
-      res.send(shoe);
+        const shoe = await getShoeById(req.params.id)
+        if (!shoe) {
+            return res.status(404).send({ error: 'Shoe not found' })
+        }
+        res.send(shoe)
     } catch (err) {
-      console.error('Error fetching shoe by ID:', err);
-      next(err);
+        console.error('Error fetching shoe by ID:', err)
+        next(err)
     }
-  });
+})
 
 module.exports = app

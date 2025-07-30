@@ -6,7 +6,9 @@ import './style.css';
 const ShoeCard = ({ shoe, getHeaders, user, favorites, setFavorites }) => {
   const { id, name, brand, model, size, color, image_url } = shoe
 
-  const favoriteEntry = favorites.find(fav => fav.shoe_id === id)
+  const favoriteEntry = favorites.find(fav =>
+    fav.shoe_id === id || fav.id === id || fav.id === shoe.id
+  )
   const isFavorited = Boolean(favoriteEntry)
 
   const toggleFavorite = async () => {
@@ -14,23 +16,20 @@ const ShoeCard = ({ shoe, getHeaders, user, favorites, setFavorites }) => {
       alert('Please log in to manage favorites')
       return
     }
-
+  
     try {
-      if(isFavorited){
+      if (isFavorited) {
         await axios.delete(`/api/favorites/${favoriteEntry.id}`, getHeaders())
         setFavorites(favorites.filter(fav => fav.id !== favoriteEntry.id))
       } else {
-        const {data} = await axios.post('/api/favorites', {
-          shoe_id: id,
-          user_id: user.id
-        }, getHeaders())
+        const { data } = await axios.post('/api/favorites', {shoe_id: id, user_id: user.id,}, getHeaders())
         setFavorites([...favorites, data])
       }
-        
     } catch (error) {
-        console.log(error)
+      console.error('Error toggling favorite:', error)
     }
-}
+  }
+  
 
   return (
     <div className="shoe-card">
@@ -43,7 +42,6 @@ const ShoeCard = ({ shoe, getHeaders, user, favorites, setFavorites }) => {
       <button
         className={`shoe-button ${isFavorited ? 'favorited' : ''}`}
         onClick={toggleFavorite}
-        disabled={isFavorited}
       >
         {isFavorited ? 'Favorited ❤️' : 'Add to Favorite'}
       </button>
@@ -51,8 +49,8 @@ const ShoeCard = ({ shoe, getHeaders, user, favorites, setFavorites }) => {
           View Details
       </Link>
     </div>
-  );
-};
+  )
+}
 
 
-export default ShoeCard;
+export default ShoeCard

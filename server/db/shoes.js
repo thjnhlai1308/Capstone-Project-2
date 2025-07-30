@@ -4,23 +4,23 @@ const uuidv4 = v4
 
 const createShoe = async ({ name, brand, model, color, image_url, description, buy_link, user_id }) => {
     const SQL = `
-      INSERT INTO shoes (id, name, brand, model, color, image_url, description, buy_link, user_id)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-      RETURNING *;
-    `;
+        INSERT INTO shoes (id, name, brand, model, color, image_url, description, buy_link, user_id)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+        RETURNING *
+    `
     const response = await client.query(SQL, [
-      uuidv4(),
-      name,
-      brand,
-      model,
-      color,
-      image_url,
-      description,
-      buy_link,
-      user_id
-    ]);
-    return response.rows[0];
-  };
+        uuidv4(),
+        name,
+        brand,
+        model,
+        color,
+        image_url,
+        description,
+        buy_link,
+        user_id
+    ])
+    return response.rows[0]
+}
 
 const fetchShoes = async () => {
     const SQL = `
@@ -44,13 +44,13 @@ const updateShoe = async (shoe) => {
 
 const getShoeById = async (id) => {
     const SQL = `
-      SELECT *
-      FROM shoes
-      WHERE id = $1
-    `;
-    const response = await client.query(SQL, [id]);
-    return response.rows[0];
-  };
+        SELECT *
+        FROM shoes
+        WHERE id = $1
+    `
+    const response = await client.query(SQL, [id])
+    return response.rows[0]
+}
 
 module.exports = {
     createShoe,

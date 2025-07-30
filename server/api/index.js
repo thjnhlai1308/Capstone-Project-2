@@ -6,5 +6,6 @@ app.use('/users', require('./users'))
 app.use('/shoes', require('./shoes'))
 app.use('/favorites', require('./favorites'))
 app.use('/auth', require('./auth'))
+app.use('/reviews', require('./reviews'))
 
 module.exports = app

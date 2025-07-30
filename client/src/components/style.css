@@ -1,50 +1,150 @@
-/* === Homepage === */
-.homepage {
-  padding: 6rem 2rem;
-  max-width: 1300px;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+}
+
+
+/* Welcome Page */
+.welcome-page {
+  padding: 2rem;
+  max-width: 1100px;
   margin: 0 auto;
-  background-color: #0f0f0f;
-  color: #f1f1f1;
-  font-family: 'Poppins', sans-serif;
+  color: #222;
+}
+
+.hero {
+  background-image: url('https://wallpapers.com/images/hd/off-white-jordan-1-bkyp75vysmtu8qaj.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 10rem 2rem;
+  color: aliceblue;
   text-align: center;
-  line-height: 1.6;
-}
-
-.homepage h1 {
-  font-size: 4rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -1px;
+  border-radius: 1rem;
   margin-bottom: 2rem;
-  color: #ffffff;
+  position: relative;
+  font-size: 1.7rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
 }
 
-.homepage p {
-  font-size: 1.3rem;
-  max-width: 720px;
-  margin: 0 auto 4rem auto;
-  color: #b0b0b0;
-  font-weight: 300;
-  animation: slideFadeIn 0.7s ease;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* dark overlay */
+  border-radius: 1rem;
+  z-index: 1;
 }
 
-.allshoes {
-  margin-top: 5rem;
+.hero * {
+  position: relative;
+  z-index: 2;
 }
 
-.allshoes h2 {
-  font-size: 2.4rem;
-  margin-bottom: 2.5rem;
-  color: #ffffff;
-  font-weight: 700;
+.hero .highlight {
+  color: #ff3e3e;
 }
 
-.shoe-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 5rem;
-  padding: 1rem 0;
+.hero .btns {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
+
+.hero button {
+  background: #ffffff;
+  color: black;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.hero button:hover {
+  background: #ffcc00;
+}
+
+.btns button {
+  background-color: #111;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  margin: 0 0.5rem;
+  margin-bottom: 5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btns button:hover {
+  background-color: #333;
+}
+
+.how-it-works {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 10rem;
+}
+
+.step {
+  flex: 1 1 250px;
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.step h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.step p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.final {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.final h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.final button {
+  background-color: #ff3e3e;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.final button:hover {
+  background-color: #e63232;
+}
+
   /* ========== */
 
   /* === Navbar === */
@@ -90,6 +190,18 @@
   .nav-links a:hover {
     color: #e94560;
   }
+
+  .user-greeting {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
+    margin-right: 1rem;
+    font-size: 1.1rem;
+    color: #ff3b3b;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+
   .view-all {
     background-color: #e94560;
     border: none;
@@ -115,21 +227,19 @@
   }
   
   .logout-btn {
-    background-color: transparent;
-    border: 1px solid #555;
-    color: #ccc;
-    padding: 0.45rem 1rem;
-    border-radius: 6px;
-    font-size: 0.9rem;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin-left: 0.8rem;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 6px rgb(255, 254, 254);
   }
   
   .logout-btn:hover {
-    background-color: #222;
-    color: #fff;
-    border-color: #999;
+    background-color: #ff3b3b;
   }
 
 @media (max-width: 768px) {
@@ -152,61 +262,95 @@
 /* ========== */
 
 /* === Login === */
-.login-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: 50vh;
+.login-wrapper {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px black;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.login-container {
-    background-color: #fff;
-    padding: 2rem 3rem;
-    border-radius: 16px;
-    box-shadow: 0 0 20px black;
-    width: 100%;
-    max-width: 500px;
+.login-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #111;
 }
 
-.login-form h1 {
-    margin-bottom: 1.5rem;
-    color: #333;
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.login-form input  {
-    width: 100%;
-    padding: 12px 16px;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
+.login-form label {
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.login-form button {
-    width: 100%;
-    padding: 12px 16px;
-    background-color: #222;
-    color: #fff;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+.login-form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 1.5rem;
 }
-.login-form button:hover {
-    background-color: #444;
-  }
-  
-  .error {
-    color: #d33;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-  }
+
+.login-button, .register-btn {
+  padding: 0.6rem;
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-button:hover {
+  background-color: #222;
+}
+
+.oauth-section {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.github-login {
+  display: inline-block;
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.github-login:hover {
+  background-color: #555;
+}
+
+.login-divider {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.login-error {
+  color: red;
+  text-align: center;
+  margin-top: 1rem;
+}
+
 
   /* ========== */
 
   /* === Register === */
-  .register-container, .login-container {
+  .register-container {
     max-width: 450px;
     margin: 3rem auto;
     padding: 2rem;
@@ -217,13 +361,13 @@
     
   }
 
-  .register-container h1, .login-container h1{
-    margin-bottom: 1.5rem;
+  .register-container h1{
+    margin-bottom: .5rem;
     font-size: 2rem;
     color: #111;
   }
 
-  .register-container form, .login-container form{
+  .register-container form{
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -252,7 +396,7 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 1rem;
+    margin-top: .6rem;
   }
 
   .register-container button:hover {
@@ -260,7 +404,7 @@
   }
   /* ========== */
 
-/* === Browse All Shoes Section === */
+/* === Browse Page === */
 
 .homepage {
   padding: 2rem;
@@ -297,10 +441,18 @@
   gap: 1.5rem;
   padding: 1rem 0;
 }
-/* ========== */
 
-/* === Browse === */
-/* Browse Page */
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem 1rem;
+  margin: 1rem auto;
+  display: block;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
 .browse-page {
   padding: 2rem;
   max-width: 1200px;
@@ -334,8 +486,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* space between content and buttons */
-  height: 100%; /* ensure consistent height for layout */
+  justify-content: space-between;
+  height: 100%;
   box-sizing: border-box;
 }
 
@@ -366,7 +518,7 @@
   margin: 0.25rem 0;
   width: 100%;
   text-align: center;
-  color: #444;
+  color: #ff3e3e;
 }
 
 .shoe-button,
@@ -383,7 +535,7 @@
 }
 
 .shoe-button {
-  background-color: #007bff;
+  background-color: #ff3e3e;
   color: white;
 }
 
@@ -395,110 +547,388 @@
 
 /* === Single Shoe === */
 .shoe-page {
-  min-height: 100vh;
-  padding: 40px;
-  display: flex;  
-  flex-direction: column;
-  align-items: center;
-  background-color: #fafafa;
-}
-
-.back-button {
-  background-color: #f0f0f0;
-  color: #333;
-  border: none;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.back-button:hover {
-  background-color: #e0e0e0;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
 }
 
 .shoe-container {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  background: #f9f9f9;
-  border-radius: 12px;
-  padding: 5rem;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 2rem;
 }
 
 .shoe-image-container {
-  flex: 1;
-  min-width: 500px;
+  flex: 1 1 300px;
   text-align: center;
 }
 
 .shoe-image {
-  max-width: 600px; 
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .shoe-info {
-  text-align: center;
-  max-width: 600px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #333;
+  flex: 1 1 300px;
+}
+
+.shoe-info h1 {
+  margin-bottom: 0.5rem;
+}
+
+.shoe-description {
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  color: #444;
 }
 
 .buy-now-button {
-  background-color: #ff5c5c;
+  background-color: #111;
   color: white;
-  padding: 0.75rem 1.5rem;
   border: none;
+  padding: 0.6rem 1.2rem;
+  margin-top: 1rem;
+  cursor: pointer;
   border-radius: 8px;
   font-weight: bold;
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: background-color 0.3s ease;
 }
 
-.buy-now-button:hover {
-  background-color: #e14e4e;
+.single-shoe-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.shoe-button, .review-button {
+  background-color: #ff3e3e;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.shoe-button.favorited {
+  background-color: #e63946;
+}
+
+.review-form {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  max-width: 600px;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+}
+
+.review-form h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.review-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  margin-top: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: border 0.2s ease;
+}
+
+.review-form textarea{ 
+  height: 120px;
+}
+
+.review-form select:focus,
+.review-form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.review-form button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.review-form button:hover {
+  background-color: #0056b3;
+}
+
+.back-links {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.view-link {
+  color: #ff3e3e;
+  text-decoration: none;
+}
+
+.view-link:hover {
+  text-decoration: underline;
 }
 
 .login-required {
-  padding: 2rem;
   text-align: center;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 4rem auto;
+  background-color: #fefefe;
+  border: 2px dashed #ccc;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.login-required h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.login-required p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 2rem;
 }
 
 .auth-buttons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 1.5rem;
 }
 
 .auth-buttons button {
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
+  background-color: #1e88e5;
+  color: #fff;
   border: none;
-  background-color: #444;
-  color: white;
-  border-radius: 6px;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .auth-buttons button:hover {
-  background-color: #222;
+  background-color: #1565c0;
 }
 
 /* ========== */
 
+/* === Closet === */
+.closet-container {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
 
-  
+.closet-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.shoe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.shoe-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.shoe-card:hover {
+  transform: translateY(-5px);
+}
+
+.shoe-image {
+  height: 100%;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.shoe-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.shoe-details {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0.25rem 0;
+}
+
+.shoe-button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.shoe-button:hover {
+  background-color: #333;
+}
+
+/* ========== */
+
+/* === Account Page === */
+.account-page {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #f7f9fc, #eaf1f8);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+  color: #1c1c1e;
+}
+
+.account-page h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #0a2540;
+}
+
+.account-page h3 {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.account-info,
+.account-stats,
+.account-update,
+.user-reviews,
+.account-danger {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.account-info p,
+.account-stats li {
+  font-size: 1rem;
+  margin: 0.3rem 0;
+}
+
+.account-stats ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.review-card {
+  background: #f9fbfc;
+  border-left: 4px solid #3f8efc;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.review-card p {
+  margin: 0.25rem 0;
+}
+
+.account-update input[type="email"] {
+  padding: 0.6rem;
+  font-size: 1rem;
+  width: 60%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+}
+
+.account-update button {
+  padding: 0.6rem 1.2rem;
+  background: #3f8efc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.account-update button:hover {
+  background: #2563eb;
+}
+
+.delete-account {
+  background-color: #ff4d4f;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.delete-account:hover {
+  background-color: #d9363e;
+}
+
+@media (max-width: 600px) {
+  .account-update input[type="email"] {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .account-update button {
+    width: 100%;
+  }
+
+  .account-page {
+    padding: 1rem;
+  }
+}
+
+/* ========== */
+

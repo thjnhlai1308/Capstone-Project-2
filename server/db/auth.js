@@ -1,7 +1,7 @@
 const client = require('./client')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-require('dotenv').config();
+require('dotenv').config()
 const axios = require('axios')
 const {v4} = require('uuid')
 const uuidv4 = v4
@@ -10,7 +10,7 @@ const findUserByToken = async (token) => {
     try {
         const payload = await jwt.verify(token, process.env.JWT)
         const SQL = `
-            SELECT id, username, is_admin
+            SELECT id, username, email, created_at, is_admin
             FROM users
             WHERE id = $1
         `
@@ -51,7 +51,43 @@ const authenticate = async (credentials) => {
     return {token}
 }
 
+const authenticateGithub = async (code) => {
+    let response = await axios.post('https://github.com/login/oauth/access_token', {
+        client_id: process.env.GITHUB_CLIENT_ID,
+        code,
+        client_secret: process.env.GITHUB_CLIENT_SECRET
+    }, {
+        headers:{
+            Accept: 'application/json'
+        }
+    })
+    //return response.data
+    response = await axios.get('https://api.github.com/user', {
+        headers: {
+            Authorization: `Bearer ${response.data.access_token}`
+        }
+    })
+    
+    const login = response.data.login
+    let SQL = `
+        SELECT id
+        FROM users
+        WHERE username = $1
+    `
+    response = await client.query(SQL, [login])
+    if(!response.rows.length){
+        SQL = `
+            INSERT INTO users(id, username, is_Oauth)
+            VALUES($1, $2, $3)
+            RETURNING *
+        `
+        response = await client.query(SQL, [uuidv4(), login, true])
+    }
+    return jwt.sign({id:response.rows[0].id}, process.env.JWT)
+}
+
 module.exports = {
     findUserByToken,
-    authenticate
+    authenticate,
+    authenticateGithub
 }

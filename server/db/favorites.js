@@ -14,9 +14,10 @@ const createFavorite = async (favorite) => {
 
 const fetchFavorites = async (userId) => {
     const SQL = `
-        SELECT *
-        FROM favorites
-        WHERE user_id = $1
+        SELECT f.id AS favorite_id, s.*
+        FROM favorites f
+        JOIN shoes s ON f.shoe_id = s.id
+        WHERE f.user_id = $1
     `
     const response = await client.query(SQL, [userId])
     return response.rows

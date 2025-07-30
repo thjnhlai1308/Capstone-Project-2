@@ -52,6 +52,7 @@ const Register = () => {
                 </label>
                 <br />
                 <button type="submit">Register</button>
+                <button className="register-btn" onClick={() => navigate('/login')}>Login</button>
             </form>
             <hr />
             {error && <h2 style={{color: 'red'}}>{error}</h2>}
