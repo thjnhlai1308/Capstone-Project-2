@@ -52,9 +52,6 @@ const authenticate = async (credentials) => {
 }
 
 const authenticateGithub = async (code) => {
-
-    console.log('GITHUB_CLIENT_ID:', process.env.GITHUB_CLIENT_ID);
-    console.log('GITHUB_CLIENT_SECRET:', process.env.GITHUB_CLIENT_SECRET);
     let response = await axios.post('https://github.com/login/oauth/access_token', {
         client_id: process.env.GITHUB_CLIENT_ID,
         code,
@@ -64,13 +61,13 @@ const authenticateGithub = async (code) => {
             Accept: 'application/json'
         }
     })
-    //return response.data
+    
     response = await axios.get('https://api.github.com/user', {
         headers: {
             Authorization: `Bearer ${response.data.access_token}`
         }
     })
-    //return response.data
+    
     const login = response.data.login
     let SQL = `
         SELECT id

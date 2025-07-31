@@ -50,9 +50,7 @@ const Login = ({ attemptLoginWithToken }) => {
       
 
       <div className="oauth-section">
-        <a className="github-login" href={`https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}`}>
-          Login through GitHub
-        </a>
+        <a className="github-login" href={`https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}`}>Login through GitHub</a>
       </div>
       
       <hr />
